@@ -1,10 +1,21 @@
 #include <stdio.h>
 
-extern int val_g;
-extern int val1_g;
+enum Sex {
+	MALE,
+	FEMALE,
+	SECRET
+};
 
-int main(){
-    printf("%d\n", val_g);
-    printf("%d\n", val1_g);
-    return 0;
+
+//int do_something() {
+//	printf("%d\n", 10);
+//	return 0;
+//}
+
+int main() {
+	char arr1[] = "abc";
+	char arr2[] = {'a', 'b', 'c', '\0'};
+	printf("%s\n", arr1);
+	printf("%s\n", arr2);
+	return 0;
 }
