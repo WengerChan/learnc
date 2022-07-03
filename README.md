@@ -19,7 +19,7 @@ double //双精度浮点数
 
     ```c
     #include <stdio.h>
-    
+
     int main() {
         printf("%d\n", sizeof(char));   // 1 (byte)
         printf("%d\n", sizeof(short));  // 2
@@ -33,7 +33,7 @@ double //双精度浮点数
     ```
 
 * 使用数据类型
-    
+
     ```c
     char ch = 'w';
     int weight = 123;
@@ -96,6 +96,7 @@ int main() {
     * 4 枚举常量：可以一一列举
 
         ```c
+        #include <stdio.h>
         //性别
         enum Sex {
             MALE,  //MALE = 3 可以赋初值
@@ -111,20 +112,124 @@ int main() {
         }
         ```
 
-* 字符串
+### 3 字符串
 
-    字符串是由双引号括起来的一串字符
+字符串是由双引号括起来的一串字符 字符数组: 数组是一组形同类型的元素
 
-    字符数组: 数组是一组形同类型的元素
+字符串结尾的位置隐藏了一个 '\0' 字符, 这个是字符串结束的标志
 
-    字符串结尾的位置隐藏了一个 '\0' 字符, 这个是字符串结束的标志
+```c
+#include <stdio.h>
+int main() {
+    char arr1[] = "abc";
+    char arr2[] = {'a', 'b', 'c'};
+    printf("%s\n", arr1);  // abc
+    printf("%s\n", arr2);  // abc烫烫烫(和编译器有关)
+    return 0;
+}
+```
 
-    ```c
-    int main() {
-	    char arr1[] = "abc";
-	    char arr2[] = {'a', 'b', 'c'};
-	    printf("%s\n", arr1);  // abc
-	    printf("%s\n", arr2);  // abc烫烫烫
-	    return 0;
+字符串长度： `strlen("str")`
+
+### 4 转义字符
+
+```c
+#include <stdio.h>
+int main(){
+    printf("%s\n", '\');
+    printf("%c\n", '\130');  //X
+    printf("%s\n", "\130");  //X
+    printf("%s\n", "\x30");  //0
+    printf("%c\n", '\x30');  //0
+    printf("%d\n", strlen("c:\test\328\test.c"));  //14
+    printf("%d\n", strlen("c:\\test\\328\\test.c"));  //18
+}
+
+```
+
+| 转义字符 | 含义 |
+| -- | -- |
+| `\b` | 退格符 |
+| `\ddd` | ddd 表示1～3个八进制数字 `\130` |
+| `\xdd` | dd 表示2个十六进制数字，`\x30` |
+
+### 5 注释
+
+用来解释代码，便于后续阅读
+
+注释风格：
+
+```c
+// C++ 注释风格
+/* C 注释风格 */  这种风格不支持嵌套
+```
+
+### 6 选择语句: `if...else`
+
+```c
+#include <stdio.h>
+
+int main() {
+    int input = 0;
+    printf("Study?(1/0): ");
+    scanf("%d", &input);
+    if (input == 1){
+        printf("Good!\n");
     }
-    ```
+    else{
+        printf("Laji\n");
+    }
+    return 0;
+}
+```
+
+### 7 循环语句: `while`
+
+```c
+#include <stdio.h>
+int main() {
+    int line = 0;
+    while (line < 1000) {
+        printf("Learn C! \n");
+        line ++;
+    }
+    printf("Good!\n");
+    return 0;
+}
+```
+
+### 8 函数、数组
+
+```c
+#include <stdio.h>
+int add_num(int a, int b) {
+    int c = 0;
+    c = a + b;
+    return c;
+}
+
+int main() {
+    int sum = add_num(4, 5);
+    printf("%d\n", sum);
+	return 0;
+}
+```
+
+数组 - 一组相同类型元素的组合
+
+```c
+#include <stdio.h>
+int main() {
+    int arr[10] = {1,2,3,4,5,6,7,8,9};
+    printf("%d\n", arr[9]);
+    arr[9] = 10;
+    printf("%d\n", arr[9]);
+
+    for(int i=0; i<10; i++){
+        printf("%d\n", arr[i]);
+    }
+	return 0;
+}
+```
+
+## 9 操作符

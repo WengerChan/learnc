@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 enum Sex {
 	MALE,
@@ -6,16 +7,20 @@ enum Sex {
 	SECRET
 };
 
-
-//int do_something() {
-//	printf("%d\n", 10);
-//	return 0;
-//}
+int add_num(int a, int b) {
+    int c = 0;
+    c = a + b;
+    return c;
+}
 
 int main() {
-	char arr1[] = "abc";
-	char arr2[] = {'a', 'b', 'c', '\0'};
-	printf("%s\n", arr1);
-	printf("%s\n", arr2);
+    int arr[10] = {1,2,3,4,5,6,7,8,9};
+    printf("%d\n", arr[9]);
+    arr[9] = 10;
+    printf("%d\n", arr[9]);
+
+    for(int i=0; i<10; i++){
+        printf("%d\n", arr[i]);
+    }
 	return 0;
 }
