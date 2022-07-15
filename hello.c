@@ -1,26 +1,19 @@
 #include <stdio.h>
-#include <string.h>
-
-enum Sex {
-	MALE,
-	FEMALE,
-	SECRET
-};
-
-int add_num(int a, int b) {
-    int c = 0;
-    c = a + b;
-    return c;
-}
 
 int main() {
-    int arr[10] = {1,2,3,4,5,6,7,8,9};
-    printf("%d\n", arr[9]);
-    arr[9] = 10;
-    printf("%d\n", arr[9]);
+//    int a = 0;
+//    if (a) {
+//        printf("aaa");
+//    } else {
+//        printf("bbb");
+//    }
+//
+//    (a) ? printf("aaa") : printf("bbb");
 
-    for(int i=0; i<10; i++){
-        printf("%d\n", arr[i]);
-    }
-	return 0;
+    int a = 1;
+    int b = 2;
+    int c = 3;
+    int d = (a = b+2, c = a+2, b=c+2);
+    printf("%d %d %d %d\n", a, b, c, d);
+    return 0;
 }
